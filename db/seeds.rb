@@ -16,14 +16,14 @@
 # 	)
 # end
 
-# # 10 utilisateurs en base avec Faker.
+# # # 10 utilisateurs en base avec Faker.
 # cities = City.all
 # 10.times do 
 # 	user = User.new(
 # 		first_name: Faker::Name.first_name, 
 # 		last_name: Faker::Name.first_name, 
-# 		description: Faker::Lorem.words(number: 30),
-# 		email: Faker::Internet,
+# 		description: Faker::Lorem.paragraph,
+# 		email: Faker::Internet.email,
 # 		age: Faker::Number.between(from: 18, to: 80)
 # 	)
 
@@ -31,14 +31,14 @@
 # 	user.save
 # end
 
-# # Lier avec les utilisateurs du seed.
+# # # Lier avec les utilisateurs du seed.
 # cities = City.all
 # users = User.all
 # users.each do |user|
 # 	user.city = cities[rand(10)]
 # end
 
-# #20 gossips en base avec Faker et les lier avec leur auteur.
+# # #20 gossips en base avec Faker et les lier avec leur auteur.
 # users = User.all
 # 20.times do
 # 	gossip = Gossip.new(
@@ -50,7 +50,7 @@
 # 	gossip.save
 # end
 
-# # Création de 10 tags
+# # # Création de 10 tags
 # 10.times do
 # 	tag = Tag.create(title: Faker::Internet.slug)
 # end
@@ -60,4 +60,10 @@
 
 # 20.times do |i|
 # 	tg = TagGossip.create(tag: tags[rand(9)], gossip: gossips[i])
+# end
+
+# users = User.all
+# users.each do |user|
+# 	user.description = Faker::Lorem.paragraph
+# 	user.save
 # end
