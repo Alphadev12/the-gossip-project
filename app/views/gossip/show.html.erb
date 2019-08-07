@@ -14,30 +14,9 @@
 		</ul>
 	</div>
 </nav>
-<div class="text-center">
-	<h1 class="my-4">Bienvenue sur The Gossip Project</h1>
 
-		<table class="table table-bordered">
-			<thead>
-				<th>Auteur</th>
-				<th>Gossips</th>
-			</thead>
-
-
-			<tbody>
-				<% @users.each do |user|%>
-				<tr>
-					<td><%= user.first_name %></td>
-
-					<td>
-						<% user.gossips.each do |gossip|%>
-							<a href="/gossip/<%= gossip.id %>"><%= gossip.title %></a><br>
-						<% end %>
-					</td>
-				</tr>
-				<% end %>
-			</tbody>
-				
-		</table>
-
+<div class="text-center mt-4">
+	<h1> <span class="text-info"> <%= @gossip.title %> </span> de <%= @gossip.user.first_name %></h1>
+	<p> <%= @gossip.content %> </p>
+	<p> <%= @gossip.created_at %></p>
 </div>

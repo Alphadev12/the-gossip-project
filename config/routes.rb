@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'gossip/:id', to: 'gossip#show'
   get 'home', to: 'home#show'
   get 'welcome/:first_name', to: 'welcome#show'
   get 'contact/show'
