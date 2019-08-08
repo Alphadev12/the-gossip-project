@@ -1,5 +1,7 @@
 class GossipsController < ApplicationController
   def index
+    @users = User.all
+    @gossips = Gossip.all
   end
 
   def show
@@ -11,6 +13,10 @@ class GossipsController < ApplicationController
   end
 
   def create
+    title = params["title"]
+    content = params["content"]
+
+    gossip = Gossip.create(title: title, content: content)
   end
 
   def edit
