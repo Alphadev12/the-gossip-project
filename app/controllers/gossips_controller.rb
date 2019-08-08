@@ -16,7 +16,17 @@ class GossipsController < ApplicationController
     title = params["title"]
     content = params["content"]
 
-    gossip = Gossip.create(title: title, content: content)
+    @user = User.find(11)
+
+    @gossip = Gossip.new(title: title, content: content)
+    @gossip.user = @user
+    @gossip.save
+
+    if @gossip.save
+      redirect_to gossips_path, :notice => "The super potin was succesfully saved !"
+    else
+      render "new"
+    end
   end
 
   def edit
@@ -27,4 +37,5 @@ class GossipsController < ApplicationController
 
   def destroy
   end
+
 end
