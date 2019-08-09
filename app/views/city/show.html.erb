@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-	<a class="navbar-brand" href="/">The Gossip Project</a>
+	<a class="navbar-brand" href="/gossips">The Gossip Project</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	<span class="navbar-toggler-icon"></span>
 	</button>
@@ -14,26 +14,21 @@
 		</ul>
 	</div>
 </nav>
-
-<div class="text-center mt-4">
-	<h1> <span class="text-info"> <%= @gossip.title %> </span> de <a href="/user/<%= @gossip.user.id %>"><%= @gossip.user.first_name %></a> </h1>
-
-	<div class="display-4">
-		<%= @gossip.content %>
-	</div>
-
-	<table class="table table-bordered">
+<div>
+	<h1 class="text-center m-4"><%= @city.name %></h1>
+	<div class="row text-center">
 		
-	</table>
-	
-	<p> 
-		<a href="/city/<%= @gossip.user.city.id %>"><%= @gossip.user.city.name %> </a>
-	</p>
-	
-	<p> <%= @gossip.created_at %> </p>
+		<% @users.each do |user| %>
+		<div class="col-6">
+			<ul>
+				<h3 class="text-success"> <%= user.first_name %> </h3>
 
-	<div>
-		<a href="/gossips/<%= @gossip.id %>/edit" class="btn btn-info">Modifier</a>
+				<% gossips = user.gossips %>
+				<% gossips.each do |gossip| %>
+					<li> <%= gossip.title %> </li>
+				<% end %>
+			</ul>
+		</div>
+		<% end %>
 	</div>
 </div>
-

@@ -30,9 +30,25 @@ class GossipsController < ApplicationController
   end
 
   def edit
+    id = params[:id]
+    @gossip = Gossip.find(id)
   end
 
   def update
+    id = params[:id]
+    @gossip = Gossip.find(id)
+    
+    title = params["title"]
+    content = params["content"]
+
+    puts @gossip
+
+    if @gossip.update(title: title, content: content)
+      redirect_to gossips_path, :notice => "The super potin was succesfully updated !"
+    else
+      render :edit
+    end
+
   end
 
   def destroy
