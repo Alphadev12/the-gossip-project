@@ -41,10 +41,8 @@ class GossipsController < ApplicationController
     title = params["title"]
     content = params["content"]
 
-    puts @gossip
-
     if @gossip.update(title: title, content: content)
-      redirect_to gossips_path, :notice => "The super potin was succesfully updated !"
+      redirect_to @gossip, :notice => "The super potin was succesfully updated !"
     else
       render :edit
     end
