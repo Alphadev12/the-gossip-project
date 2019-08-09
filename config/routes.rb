@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :gossips
   resources :user
+  resources :city
 
   root 'gossips#index'
 

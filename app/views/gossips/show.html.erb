@@ -25,7 +25,11 @@
 	<table class="table table-bordered">
 		
 	</table>
-	<p> <%= @gossip.user.city.name %> </p>
+	
+	<p> 
+		<a href="/city/<%= @gossip.user.city.id %>"><%= @gossip.user.city.name %> </a>
+	</p>
+	
 	<p> <%= @gossip.created_at %> </p>
 </div>
 
