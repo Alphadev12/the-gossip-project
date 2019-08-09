@@ -50,6 +50,11 @@ class GossipsController < ApplicationController
   end
 
   def destroy
+    id = params[:id]
+    gossip = Gossip.find(id)
+    gossip.destroy
+
+    redirect_to gossips_path, :notice => "The super potin was succesfully delete !"
   end
 
 end
