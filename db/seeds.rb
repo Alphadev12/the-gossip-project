@@ -67,3 +67,12 @@
 # 	user.description = Faker::Lorem.paragraph
 # 	user.save
 # end
+
+# anonyme = User.create(
+# 	first_name: "anonyme", 
+#  	last_name: "anonyme", 
+# 	description: "anonyme",
+#  	email: "anonyme@anonyme.com",
+#  	age: 15,
+#  	city_id: 1
+# )

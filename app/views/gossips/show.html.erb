@@ -15,7 +15,7 @@
 	</div>
 </nav>
 
-<%= form_tag url_for(action: 'destroy'), method: "delete" do %>
+<!-- <%= form_tag url_for(action: 'destroy'), method: "delete" do %> -->
 
 	<% if notice != nil %>
 		<div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -27,27 +27,34 @@
 		</div>
 	<% end %>
 
-	<div class="text-center mt-4">
-		<h1> <span class="text-info"> <%= @gossip.title %> </span> de <a href="/user/<%= @gossip.user.id %>"><%= @gossip.user.first_name %></a> </h1>
 
-		<div class="display-4">
-			<%= @gossip.content %>
+	<div class="mt-4">
+
+		<div class="card pb-4">
+
+	  		<h5 class="card-header">
+		  		Gossip
+			</h5>
+		  
+		 	<div class="card-body">
+			   	<h5 class="card-title"> <span class="text-info"> <%= @gossip.title %> </span> de <a href="/user/<%= @gossip.user.id %>"><%= @gossip.user.first_name %></a> </h5>
+			   	<p class="card-text"> Description : <%= @gossip.content %> </p>
+			   	<p class="card-text"> Ville : <a href="/city/<%= @gossip.user.city.id %>"><%= @gossip.user.city.name %> </a> </p>
+			   	<p class="card-text"> Date de création : <%= @gossip.created_at %> </p>
+			   	<a href="/gossips/<%= @gossip.id %>/edit" class="btn btn-info">Modifier</a>
+				<a href="/gossips/<%= @gossip.id %>" class="btn btn-danger" data-method="delete">Supprimer</a>	
+		 	</div>
+
+		 	<div class="col-2">
+		 		<label>Commentaire : </label>
+		 		<input type="text" class="form-control" name="comment">
+		 		<div class="py-2">
+		 			<a href="/comment/" class="btn btn-primary">Commenter</a>
+		 		</div>
+		 	</div>
+
 		</div>
 
-		<table class="table table-bordered">
-			
-		</table>
-		
-		<p> 
-			<a href="/city/<%= @gossip.user.city.id %>"><%= @gossip.user.city.name %> </a>
-		</p>
-		
-		<p> <%= @gossip.created_at %> </p>
-
-		<div>
-			<a href="/gossips/<%= @gossip.id %>/edit" class="btn btn-info">Modifier</a>
-			<button type="submit" class="btn btn-danger">Supprimer</button>	
-		</div>
 	</div>
 
-<% end %>
+<!-- <% end %> -->
