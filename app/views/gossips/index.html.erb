@@ -42,7 +42,11 @@
 				<td><%= user.first_name %></td>
 				<td>
 					<% user.gossips.each do |gossip|%>
-					<a href="/gossips/<%= gossip.id %>"><%= gossip.title %></a><br>
+					<a href="/gossips/<%= gossip.id %>"><%= gossip.title %> </a>
+					<a href="">
+						(<%= gossip.comments.count %>)
+					</a>
+					<br>
 					<% end %>
 				</td>
 			</tr>
