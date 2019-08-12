@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :home, only: [:index]
+  resources :sessions, only: [:new, :create, :destroy]
   resources :gossips do
     resources :comments
   end
@@ -6,7 +8,7 @@ Rails.application.routes.draw do
   resources :user
   resources :city
 
-  root 'gossips#index'
+  root 'home#index'
 
   # get 'user/:id', to:"user#show"
   # get 'gossip/:id', to: 'gossip#show'
