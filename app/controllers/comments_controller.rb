@@ -28,9 +28,23 @@ class CommentsController < ApplicationController
   end
 
   def edit
+    comment_id = params[:id]
+    @comment = Comment.find(comment_id)
   end
 
   def update
+    comment_id = params[:id]
+    @comment = Comment.find(comment_id)
+    @gossip = @comment.gossip
+
+    content = params[:comment_content]
+
+    if @comment.update(content: content)
+      puts "test"
+      redirect_to @gossip, :notice => "Le commentaire a été bien modifier !"
+    else
+      render :edit
+    end
   end
 
   def destroy
