@@ -48,5 +48,11 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    id = params[:id]
+    comment = Comment.find(id)
+    gossip = comment.gossip
+
+    comment.destroy
+    redirect_to gossip, :alert => "Le commentaire a été bien supprimé !"
   end
 end
