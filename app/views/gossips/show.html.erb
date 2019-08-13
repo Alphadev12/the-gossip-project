@@ -59,8 +59,11 @@
 
 	  		<h5 class="card-header">
 		  		Gossip
-		  		<a href="/gossips/<%= @gossip.id %>/edit" class="btn btn-info">Modifier</a>
-				<a href="/gossips/<%= @gossip.id %>" class="btn btn-danger" data-method="delete">Supprimer</a>
+
+		  		<% if user_created_gossip? %>
+			  		<a href="/gossips/<%= @gossip.id %>/edit" class="btn btn-info">Modifier</a>
+					<a href="/gossips/<%= @gossip.id %>" class="btn btn-danger" data-method="delete">Supprimer</a>
+				<% end %>
 			</h5>
 		  
 		 	<div class="card-body">
@@ -82,10 +85,12 @@
 			 					<%= comment.user.first_name %> : <%= comment.content %>
 			 				</div>
 
-			 				<div>
-			 					<a href="/gossips/<%= @gossip.id %>/comments/<%= comment.id %>/edit">Modifier</a>
-			 					<a href="/gossips/<%= @gossip.id %>/comments/<%= comment.id %>" class="text-danger" data-method="delete">Supprimer</a>
-			 				</div>
+			 				<% if comment.user == current_user %>
+				 				<div>
+				 					<a href="/gossips/<%= @gossip.id %>/comments/<%= comment.id %>/edit">Modifier</a>
+				 					<a href="/gossips/<%= @gossip.id %>/comments/<%= comment.id %>" class="text-danger" data-method="delete">Supprimer</a>
+				 				</div>
+		 					<% end %>
 			 			</div>
 		 			<% end %>
 	 			</div>
