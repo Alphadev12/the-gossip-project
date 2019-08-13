@@ -16,7 +16,9 @@ class GossipsController < ApplicationController
     title = params["title"]
     content = params["content"]
 
-    @user = User.find(11)
+    # @user = User.find(11)
+    @user = User.find_by(id: session[:user_id])
+
 
     @gossip = Gossip.new(title: title, content: content)
     @gossip.user = @user
