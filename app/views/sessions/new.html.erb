@@ -1,0 +1,29 @@
+
+
+<div class="form-block text-center">	
+	<%= form_tag url_for(action: 'create'), method: "post" do %>
+		<img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+
+		<% if flash[:danger] %>
+			<div class="alert alert-danger alert-dismissible fade show" role="alert">
+				<%= flash[:danger] %>
+				
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+		<% end %>
+		
+		<h1 class="h3 mb-3 font-weight-normal">Veuillez vous connecté</h1>
+
+		<%= label_tag 'Adresse email :', nil, class: 'sr-only' %>
+		<%= email_field_tag 'email', nil, class: 'form-control mb-3', placeholder: "Adresse email", :required => true, :autofocus => true %>
+
+		<%= label_tag 'Mot de passe :', nil, class: 'sr-only' %>
+		<%= password_field_tag 'password', nil, class: 'form-control mb-3', placeholder: "Mot de passe", :required => true %>
+
+		<%= submit_tag "Se connecter", class: 'btn btn-lg btn-primary btn-block' %>
+		<p class="mt-5 mb-3 text-muted">The Gossip Project</p>
+	
+	<% end %>
+</div>
