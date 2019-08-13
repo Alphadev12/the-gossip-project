@@ -27,7 +27,10 @@ class UserController < ApplicationController
 
     user.city = city
     if user.authenticate(password_confirm)
-      user.save
+      if user.save
+        log_in(user)
+        redirect_to gossips_path
+      end
     end
   end
 
