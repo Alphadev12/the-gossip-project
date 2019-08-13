@@ -8,7 +8,8 @@ class SessionsController < ApplicationController
   	user = User.find_by(email: email)
 
   	if user && user.authenticate(password)
-  		session[:user_id] = user.id
+  		log_in(user)
+
   		redirect_to gossips_path
   	else
   		flash.now[:danger] = 'Adresse email/mot de passe incorrect'
@@ -16,6 +17,8 @@ class SessionsController < ApplicationController
   	end
   end
 
-  def detroy
+  def destroy
+    session.delete(:user_id)
+
   end
 end

@@ -15,7 +15,11 @@
 	</div>
 </nav>
 <div class="text-center">
-	<h1 class="my-4">Bienvenue sur The Gossip Project</h1>
+	<h1 class="my-4">Bienvenue 
+		<% if logged_in? %>
+			<%= current_user.first_name %>
+		<% end %>		
+	</h1>
 
 	<div class="m-4">
 		<a href="/gossips/new" class="btn btn-success">Ajouter un potin</a>
