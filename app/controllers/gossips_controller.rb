@@ -1,4 +1,6 @@
 class GossipsController < ApplicationController
+  before_action :authenticate_user
+
   def index
     @users = User.all
     @gossips = Gossip.all
@@ -57,6 +59,13 @@ class GossipsController < ApplicationController
     gossip.destroy
 
     redirect_to gossips_path, :notice => "The super potin was succesfully delete !"
+  end
+
+  def authenticate_user
+    unless current_user
+      flash[:danger] = "Veuillez vous connecté"
+      redirect_to new_session_path
+    end
   end
 
 end
