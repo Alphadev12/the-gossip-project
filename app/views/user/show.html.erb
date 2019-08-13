@@ -1,2 +1,40 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/gossips/destroy.html.erb</p>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<a class="navbar-brand" href="/gossips">The Gossip Project</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+				<a class="nav-link" href="/team/show">Team</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="/contact/show">Contact</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+<!-- <div class="text-center">
+	<h1> <%= @user.first_name %> <%= @user.last_name %> </h1>
+	<p>Find me in app/views/user/show.html.erb</p>
+	
+</div> -->
+
+<div class="card mx-auto my-5" style="width: 25rem;">
+  <div class="card-body ">
+    <h2 class="card-title"><%= @user.first_name %> <%= @user.last_name %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= @user.age %> ans</h6>
+    <p class="card-text"> <%= @user.description %> </p>
+    
+    <div>
+    	<label>Email : </label>
+    	<a href="#" class="card-link"> <%= @user.email %> </a>
+    </div>
+
+    <div>
+    	<label>Ville : </label>
+    	<a href="/city/<%= @user.city.id %>" class="card-link"> <%= @user.city.name %> </a>
+    </div>
+
+  </div>
+</div>
