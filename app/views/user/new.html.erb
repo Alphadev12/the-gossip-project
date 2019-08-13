@@ -55,7 +55,7 @@
 
 			<div class="form-group">
 				<%= label_tag 'Mot de passe :' %>
-				<%= password_field_tag 'mdp', nil, class: 'form-control'%>	
+				<%= password_field_tag 'password', nil, class: 'form-control'%>	
 			</div>
 
 		</div>
@@ -68,7 +68,7 @@
 
 			<div class="form-group">
 				<%= label_tag 'Email :' %>
-				<%= text_field_tag 'mdp_confirm', nil, class: 'form-control'%>	
+				<%= text_field_tag 'email', nil, class: 'form-control'%>	
 			</div>
 
 
@@ -76,12 +76,12 @@
 				<%= label_tag 'Ville :' %>
 
 				<!-- Select form -->
-				<%= select("post", "person_id", City.all.collect {|c| [ c.name, c.id ] }, { include_blank: true }, {:class => "form-control"})	%>
+				<%= select("post", "city_id", City.all.collect {|c| [ c.name, c.id ] }, { include_blank: true }, {:class => "form-control"})	%>
 			</div>
 			
 			<div class="form-group">
 				<%= label_tag 'Confirmation du mot de passe :' %>
-				<%= password_field_tag 'email', nil, class: 'form-control'%>	
+				<%= password_field_tag 'password_confirm', nil, class: 'form-control'%>	
 			</div>
 		</div>
 	</div>
