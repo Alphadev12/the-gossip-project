@@ -12,12 +12,12 @@ class CommentsController < ApplicationController
     gossip_id = params[:gossip_id]
     @gossip = Gossip.find(gossip_id)
 
-    @anonyme = User.find(11)
+    # @anonyme = User.find(11)
 
     content = params[:comment_content]
 
     @comment = Comment.new(content: content)
-    @comment.user = @anonyme
+    @comment.user = current_user
     @comment.gossip = @gossip
 
     if @comment.save
