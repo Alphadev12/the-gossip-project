@@ -14,9 +14,15 @@
 		</ul>
 	</div>
 
-	<form class="form-inline my-2 my-lg-0">
-		<a href="/sessions/destroy" class="btn btn-outline-danger my-2 my-sm-0" data-method="delete">Deconnexion</a>
-	</form>
+	<% if current_user %>
+		<form class="form-inline my-2 my-lg-0">
+			<a href="/sessions/destroy" class="btn btn-outline-danger my-2 my-sm-0" data-method="delete">Deconnexion</a>
+		</form>
+	<% else %>
+		<form class="form-inline my-2 my-lg-0">
+			<a href="/sessions/new" class="btn btn-outline-primary mr-2 my-2 my-sm-0">Connexion</a>
+		</form>
+	<% end %>
 </nav>
 <div class="text-center">
 	<h1 class="my-4">Bienvenue 
